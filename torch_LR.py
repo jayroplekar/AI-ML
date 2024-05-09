@@ -57,19 +57,19 @@ class torch_LogisticRegression(nn.Module):
       if (epoch+1) % 100 == 0:
         print(f'Epoch: {epoch+1}/{epochs}, Loss: {loss.item():.4f}')  
       
-
-# Example usage
-# Define some data (replace with your actual data)
-X = torch.randn(100, 5)  # 100 samples, 5 features
-y = torch.randint(0, 2, (100,))  # Binary labels (0 or 1)
-
-# Create the model
-model = torch_LogisticRegression()  # Input size 5, output size 1 (binary)
-model.fit(X,y)
-
-
-# Use the trained model for prediction
-new_data = torch.randn(1, 5)  # Example data for prediction
-predicted_proba = model(new_data).data.item()  # Get probability from sigmoid output
-
-print(f'Predicted probability for new data: {predicted_proba:.4f}')
+if __name__ == "__main__":
+  # Example usage
+  # Define some data (replace with your actual data)
+  X = torch.randn(100, 5)  # 100 samples, 5 features
+  y = torch.randint(0, 2, (100,))  # Binary labels (0 or 1)
+  
+  # Create the model
+  model = torch_LogisticRegression()  # Input size 5, output size 1 (binary)
+  model.fit(X,y)
+  
+  
+  # Use the trained model for prediction
+  new_data = torch.randn(1, 5)  # Example data for prediction
+  predicted_proba = model(new_data).data.item()  # Get probability from sigmoid output
+  
+  print(f'Predicted probability for new data: {predicted_proba:.4f}')
